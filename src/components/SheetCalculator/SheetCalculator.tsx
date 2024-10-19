@@ -35,7 +35,7 @@ const SheetCalculator = () => {
     };
 
     return (
-        <div style={{ fontSize: 16, padding: 16, maxWidth: 768, minWidth: 400, margin: '0 auto' }}>
+        <div style={{ fontSize: 16, padding: 16, maxWidth: 768, minWidth: 360, margin: '0 auto' }}>
             <Head>
                 <title>Калькулятор листов в стопе</title>
                 <meta name="description" content="Калькулятор для определения количества листов в стопе" />
