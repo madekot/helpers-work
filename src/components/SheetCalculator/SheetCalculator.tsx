@@ -62,17 +62,21 @@ const SheetCalculator = () => {
             sheetsCount,
         };
 
-        const lastCalculation = savedCalculations[savedCalculations.length - 1];
+        const firstCalculation = savedCalculations[0];
 
-        // Сравниваем новый расчет только с последним сохраненным
-        const isSameAsLast =
-            lastCalculation &&
-            lastCalculation.materialLabel === newCalculation.materialLabel &&
-            lastCalculation.height === newCalculation.height &&
-            lastCalculation.sheetsCount === newCalculation.sheetsCount;
+        const isSameAsFirst =
+            firstCalculation &&
+            firstCalculation.materialLabel === newCalculation.materialLabel &&
+            firstCalculation.height === newCalculation.height &&
+            firstCalculation.sheetsCount === newCalculation.sheetsCount;
 
-        if (!isSameAsLast) {
-            const updatedCalculations = [newCalculation, ...savedCalculations].slice(-7);
+        if (!isSameAsFirst) {
+            const updatedCalculations = [newCalculation, ...savedCalculations];
+
+            if (updatedCalculations.length > 7) {
+                updatedCalculations.pop();
+            }
+
             setSavedCalculations(updatedCalculations);
             localStorage.setItem('savedCalculations', JSON.stringify(updatedCalculations));
         }
