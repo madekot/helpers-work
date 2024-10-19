@@ -40,7 +40,7 @@ const HeightControls: React.FC<HeightControlsProps> = ({ decreaseHeight, increas
                 <Button onClick={() => decreaseHeight(0.1)} disabled={!material}>- 0,1 cm</Button>
             </div>
             <div style={{ textAlign: 'center', width: 150 }}>
-                <b style={{ fontSize: 28 }}>{sheetsCount} {getSheetLabel(sheetsCount)}</b>
+                <b style={{ fontSize: 28 }}>{sheetsCount} <br></br> {getSheetLabel(sheetsCount)}</b>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <Button onClick={() => increaseHeight(1)} disabled={!material}>+ 1 cm</Button>
