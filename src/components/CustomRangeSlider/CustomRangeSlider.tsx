@@ -1,26 +1,7 @@
+import { getCentimeterLabel } from '@/utils';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import React from 'react';
-
-const getCentimeterLabel = (height: number): string => {
-    const integerPart = Math.floor(height); // Получаем целую часть
-    const lastDigit = integerPart % 10;
-    const lastTwoDigits = integerPart % 100;
-
-    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
-        return 'сантиметров'; // Исключение для чисел от 11 до 19
-    }
-
-    if (lastDigit === 1) {
-        return 'сантиметр';
-    }
-
-    if (lastDigit >= 2 && lastDigit <= 4) {
-        return 'сантиметра';
-    }
-
-    return 'сантиметров';
-};
 
 interface CustomRangeSliderProps {
     onHeightChange: (value: number | number[]) => void;
