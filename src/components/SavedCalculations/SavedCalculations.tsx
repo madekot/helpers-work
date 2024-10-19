@@ -11,6 +11,10 @@ interface SavedCalculationsProps {
 }
 
 const SavedCalculations: React.FC<SavedCalculationsProps> = ({ savedCalculations }) => {
+    if (!savedCalculations.length) {
+        return <h3 style={{ textAlign: 'center' }}>У вас пока нет ни одного сохраненного расчета</h3>
+    }
+
     return (
         <div style={{ marginTop: 20 }}>
             <h3>Сохраненные расчеты:</h3>

@@ -51,7 +51,9 @@ const SheetCalculator = () => {
     };
 
     const saveCalculation = () => {
-        if (!material) return;
+        if (!material || height === 0) {
+            return
+        };
 
         const roundedHeight = Math.round(height * 100) / 100;
         const newCalculation: SavedCalculation = {
@@ -70,7 +72,7 @@ const SheetCalculator = () => {
             lastCalculation.sheetsCount === newCalculation.sheetsCount;
 
         if (!isSameAsLast) {
-            const updatedCalculations = [...savedCalculations, newCalculation].slice(-7);
+            const updatedCalculations = [newCalculation, ...savedCalculations].slice(-7);
             setSavedCalculations(updatedCalculations);
             localStorage.setItem('savedCalculations', JSON.stringify(updatedCalculations));
         }
@@ -93,7 +95,7 @@ const SheetCalculator = () => {
 
             <HeightControls decreaseHeight={decreaseHeight} increaseHeight={increaseHeight} sheetsCount={sheetsCount} material={material} />
 
-            <Button onClick={saveCalculation} disabled={!material} style={{ marginTop: 20 }}>
+            <Button onClick={saveCalculation} disabled={!height} style={{ marginTop: 20 }}>
                 Сохранить
             </Button>
 
