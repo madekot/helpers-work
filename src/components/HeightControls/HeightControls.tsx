@@ -50,4 +50,4 @@ const HeightControls: React.FC<HeightControlsProps> = ({ decreaseHeight, increas
     );
 };
 
-export default HeightControls;
+export default HeightControls; 
