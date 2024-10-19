@@ -6,6 +6,7 @@ import Logo from '../Logo/Logo';
 import HeightControls from '../HeightControls/HeightControls';
 import Button from '../Button/Button';
 import SavedCalculations from '../SavedCalculations/SavedCalculations';
+import Head from 'next/head';
 
 interface SavedCalculation {
     materialLabel: string;
@@ -91,6 +92,10 @@ const SheetCalculator = () => {
 
     return (
         <div style={{ maxWidth: 390, fontSize: 16, padding: 16, display: 'flex', flexDirection: 'column' }}>
+            <Head>
+                <title>Калькулятор листов в стопе</title> {/* Устанавливаем заголовок */}
+                <meta name="description" content="Калькулятор для определения количества листов в стопе" /> {/* Метатеги, если нужно */}
+            </Head>
             <h2 style={{ color: 'rgb(0, 123, 255)' }}>Калькулятор <br />Количества листов в стопе</h2>
 
             <CustomSelect onMaterialChange={handleMaterialChange} material={material} />

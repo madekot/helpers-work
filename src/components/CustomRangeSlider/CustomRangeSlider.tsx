@@ -34,7 +34,6 @@ const CustomRangeSlider: React.FC<CustomRangeSliderProps> = ({
                         disabled={disabled}
                     />
                 </div>
-
             </div>
         </div>
     );

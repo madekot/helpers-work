@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Logo = () => {
     return (
-        <Link href={'https://github.com/madekot'}>
+        <Link href={'https://t.me/Mikhail_Golubtsov'}>
             <Image
                 src="/Mishka-I-Shishka-production.png"
                 width={100}
