@@ -1,3 +1,4 @@
+import { getSheetLabel } from '@/utils';
 import React from 'react';
 
 interface SavedCalculation {
@@ -21,7 +22,7 @@ const SavedCalculations: React.FC<SavedCalculationsProps> = ({ savedCalculations
             <ul style={{ listStyle: 'none', padding: 0 }}>
                 {savedCalculations.map((calc, index) => (
                     <li key={index} style={{ padding: 5, borderBottom: '1px solid rgb(0, 123, 255)' }}>
-                        {calc.materialLabel}: <br></br>{calc.height} см - {calc.sheetsCount} листов
+                        {calc.materialLabel}: <br></br>{calc.height} см - {calc.sheetsCount} {getSheetLabel(calc.height)}
                     </li>
                 ))}
             </ul>

@@ -91,7 +91,7 @@ const SheetCalculator = () => {
     }, []);
 
     return (
-        <div style={{ maxWidth: 390, fontSize: 16, padding: 16, display: 'flex', flexDirection: 'column' }}>
+        <div style={{ fontSize: 16, padding: 16, maxWidth: 768, minWidth: 400, margin: '0 auto' }}>
             <Head>
                 <title>Калькулятор листов в стопе</title> {/* Устанавливаем заголовок */}
                 <meta name="description" content="Калькулятор для определения количества листов в стопе" /> {/* Метатеги, если нужно */}
@@ -104,13 +104,13 @@ const SheetCalculator = () => {
 
             <HeightControls decreaseHeight={decreaseHeight} increaseHeight={increaseHeight} sheetsCount={sheetsCount} material={material} />
 
-            <Button onClick={saveCalculation} disabled={!height} style={{ marginTop: 20 }}>
+            <Button onClick={saveCalculation} disabled={!height} style={{ marginTop: 20, width: '100%' }}>
                 Сохранить
             </Button>
 
             <SavedCalculations savedCalculations={savedCalculations} />
 
-            <div style={{ margin: 'auto auto 0 auto', opacity: 0.7 }}>
+            <div style={{ margin: 'auto auto 0 auto', opacity: 0.7, width: 100 }}>
                 <Logo />
             </div>
         </div>
