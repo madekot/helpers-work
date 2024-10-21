@@ -23,7 +23,8 @@ const papers = [
     { label: 'Офсетная бумага 160гр.', value: 'offset_160', thickness: 0.0187 },
 
     { label: 'Глянцевый мелованный двухсторонний Картон 300гр.', value: 'cardboard_300', thickness: 0.0360 },
-    { label: 'Глянцевый мелованный односторонний Картон 230гр.', value: 'cardboard_230', thickness: 0.0340 },
+    { label: 'Глянцевый мелованный односторонний Картон 230гр.', value: 'cardboard_230', thickness: 0.0320 },
+    { label: 'Глянцевый мелованный односторонний Картон 270гр.', value: 'cardboard_270', thickness: 0.0340 },
 ];
 
 interface CustomSelectProps {
