@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { SingleValue } from 'react-select';
+import { toast } from 'react-toastify';
 
 interface SavedCalculation {
     materialLabel: string;
@@ -19,16 +20,20 @@ export const useSavedCalculations = () => {
             firstCalculation.height === newCalculation.height &&
             firstCalculation.sheetsCount === newCalculation.sheetsCount;
 
-        if (!isSameAsFirst) {
-            const updatedCalculations = [newCalculation, ...savedCalculations];
-
-            if (updatedCalculations.length > 7) {
-                updatedCalculations.pop();
-            }
-
-            setSavedCalculations(updatedCalculations);
-            localStorage.setItem('savedCalculations', JSON.stringify(updatedCalculations));
+        if (isSameAsFirst) {
+            toast.info('Это значение уже сохранено.');
+            return;
         }
+
+        const updatedCalculations = [newCalculation, ...savedCalculations];
+
+        if (updatedCalculations.length > 7) {
+            updatedCalculations.pop();
+        }
+
+        setSavedCalculations(updatedCalculations);
+        localStorage.setItem('savedCalculations', JSON.stringify(updatedCalculations));
+        toast.success('Сохранение прошло успешно!');
     };
 
     useEffect(() => {

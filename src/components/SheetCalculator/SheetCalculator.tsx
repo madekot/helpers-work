@@ -35,7 +35,6 @@ const SheetCalculator = () => {
                 sheetsCount,
             };
             saveCalculation(newCalculation);
-            toast.success('Сохранение прошло успешно!');
         } catch {
             toast.error('Произошла ошибка при сохранении. Попробуйте снова.');
         }
