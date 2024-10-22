@@ -21,16 +21,16 @@
             background-color: #004085;
         }
     }
-}
 
-.disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    box-shadow: none;
-    pointer-events: none;
-
-    &:hover,
-    &:active {
+    &[disabled] {
         background-color: #ccc;
+        cursor: not-allowed;
+        box-shadow: none;
+        pointer-events: none;
+
+        &:hover,
+        &:active {
+            background-color: #ccc;
+        }
     }
 }

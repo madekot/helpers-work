@@ -8,6 +8,7 @@ import SavedCalculations from '../SavedCalculations/SavedCalculations';
 import Head from 'next/head';
 import { SingleValue } from 'react-select';
 import { useHeightCalculation, useSavedCalculations } from '@/hooks';
+import styles from './SheetCalculator.module.scss';
 
 const SheetCalculator = () => {
     const [material, setMaterial] = useState<SingleValue<{ label: string; value: string; thickness: number }> | null>(null);
@@ -35,12 +36,12 @@ const SheetCalculator = () => {
     };
 
     return (
-        <div style={{ fontSize: 16, padding: 16, maxWidth: 768, minWidth: 360, margin: '0 auto' }}>
+        <div className={styles.container}>
             <Head>
                 <title>Калькулятор листов в стопе</title>
                 <meta name="description" content="Калькулятор для определения количества листов в стопе" />
             </Head>
-            <h2 style={{ color: 'rgb(0, 123, 255)' }}>Калькулятор <br /> Количества листов в стопе</h2>
+            <h2 className={styles.title}>Калькулятор <br /> Количества листов в стопе</h2>
 
             <CustomSelect onMaterialChange={handleMaterialChange} material={material} />
 
@@ -48,13 +49,13 @@ const SheetCalculator = () => {
 
             <HeightControls decreaseHeight={decreaseHeight} increaseHeight={increaseHeight} sheetsCount={sheetsCount} material={material} />
 
-            <Button onClick={handleSave} disabled={!height} style={{ marginTop: 20, width: '100%' }}>
+            <Button onClick={handleSave} disabled={!height} className={styles.saveButton}>
                 Сохранить
             </Button>
 
             <SavedCalculations savedCalculations={savedCalculations} />
 
-            <div style={{ margin: 'auto auto 0 auto', opacity: 0.7, width: 100 }}>
+            <div className={styles.logoContainer}>
                 <Logo />
             </div>
         </div>
