@@ -1,13 +1,12 @@
-import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export default function Home() {
-  return (
-    <>
-      <ul>
-        <li>
-          <Link href={'./sheet-calculator'}>Калькулятор листов</Link>
-        </li>
-      </ul>
-    </>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push('/sheet-calculator');
+  }, [router]);
+
+  return null;
 }
