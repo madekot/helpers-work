@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import CustomRangeSlider from '../CustomRangeSlider/CustomRangeSlider';
 import Logo from '../Logo/Logo';
@@ -26,13 +28,17 @@ const SheetCalculator = () => {
             return;
         }
 
-        const newCalculation = {
-            materialLabel: material.label,
-            height: Math.round(height * 100) / 100,
-            sheetsCount,
-        };
-
-        saveCalculation(newCalculation);
+        try {
+            const newCalculation = {
+                materialLabel: material.label,
+                height: Math.round(height * 100) / 100,
+                sheetsCount,
+            };
+            saveCalculation(newCalculation);
+            toast.success('Сохранение прошло успешно!');
+        } catch {
+            toast.error('Произошла ошибка при сохранении. Попробуйте снова.');
+        }
     };
 
     return (
@@ -58,6 +64,8 @@ const SheetCalculator = () => {
             <div className={styles.logoContainer}>
                 <Logo />
             </div>
+
+            <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover />
         </div>
     );
 };
