@@ -1,15 +1,15 @@
-import { getCentimeterLabel } from '@/utils';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import React from 'react';
+import { getCentimeterLabel } from '../../../shared/lib/utils/getCentimeterLabel';
 
-interface CustomRangeSliderProps {
+interface Props {
     onHeightChange: (value: number | number[]) => void;
     height: number;
     disabled: boolean;
 }
 
-const CustomRangeSlider: React.FC<CustomRangeSliderProps> = ({
+export const HeightRangeSlider: React.FC<Props> = ({
     onHeightChange,
     height,
     disabled,
@@ -64,5 +64,3 @@ const CustomRangeSlider: React.FC<CustomRangeSliderProps> = ({
         </div>
     );
 };
-
-export default CustomRangeSlider;

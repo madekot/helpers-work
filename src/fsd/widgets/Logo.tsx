@@ -1,9 +1,14 @@
+import clsx from 'clsx';
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Logo = () => {
+interface Props {
+    className?: string;
+}
+
+export const Logo = ({ className }: Props) => {
     return (
-        <Link href={'https://t.me/Mikhail_Golubtsov'}>
+        <Link className={clsx(className)} href={'https://t.me/+vHUsZ-G5YN82ZmYy'}>
             <Image
                 src="/Mishka-I-Shishka-production.png"
                 width={100}
@@ -14,5 +19,3 @@ const Logo = () => {
 
     )
 }
-
-export default Logo
