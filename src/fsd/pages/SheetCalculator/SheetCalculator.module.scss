@@ -22,24 +22,6 @@
     width: 100px;
 }
 
-.heightControls {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    align-items: center;
-}
-
-.heightControlsColumn {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.sheetsCount {
-    text-align: center;
-    width: 150px;
-}
-
 .sheetsCountLabel {
     font-size: 28px;
     font-weight: bold;

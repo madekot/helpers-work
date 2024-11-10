@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { loadCalculations, saveCalculations } from './storage';
 
 interface SavedCalculation {
@@ -15,20 +15,20 @@ export const useSavedCalculations = () => {
         setStoredCalculations(saved);
     }, []);
 
-    const saveCalculation = (newCalculation: SavedCalculation) => {
+    const saveCalculation = useCallback((newCalculation: SavedCalculation) => {
         const updatedCalculations = [...storedCalculations, newCalculation];
         setStoredCalculations(updatedCalculations);
         saveCalculations(updatedCalculations);
-    };
+    }, [storedCalculations]);
 
-    const clearCalculations = () => {
+    const clearCalculations = useCallback(() => {
         setStoredCalculations([]);
-        clearCalculations();
-    };
+        saveCalculations([]);  // очищаем данные в хранилище
+    }, []);
 
-    return {
+    return useMemo(() => ({
         storedCalculations,
         saveCalculation,
         clearCalculations,
-    };
+    }), [storedCalculations, saveCalculation, clearCalculations]);
 };
