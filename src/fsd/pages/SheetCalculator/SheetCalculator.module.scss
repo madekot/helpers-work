@@ -1,0 +1,46 @@
+.container {
+    font-size: 16px;
+    padding: 16px;
+    max-width: 768px;
+    min-width: 360px;
+    margin: 0 auto;
+}
+
+.title {
+    color: rgb(0, 123, 255);
+}
+
+.saveButton {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    margin: auto auto 0 auto;
+    opacity: 0.7;
+    width: 100px;
+}
+
+.heightControls {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+}
+
+.heightControlsColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sheetsCount {
+    text-align: center;
+    width: 150px;
+}
+
+.sheetsCountLabel {
+    font-size: 28px;
+    font-weight: bold;
+}

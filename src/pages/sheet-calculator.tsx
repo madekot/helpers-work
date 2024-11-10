@@ -1,4 +1,4 @@
-import SheetCalculator from '@/components/SheetCalculator/SheetCalculator';
+import SheetCalculator from '@/fsd/pages/SheetCalculator/SheetCalculator';
 import Head from 'next/head';
 
 export default function SheetCalculatorPage() {
