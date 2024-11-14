@@ -1,5 +1,12 @@
 import { useDuplicateCalculation } from '../model/useDuplicateCalculation';
-import { SaveButton, notifySaveSuccess } from '..';
+import { notifySaveSuccess } from '..';
+
+
+interface SaveButtonProps {
+    onClick: () => void;
+    disabled?: boolean;
+    className?: string;
+}
 
 interface SaveCalculationProps {
     material: { label: string } | null;
@@ -8,9 +15,10 @@ interface SaveCalculationProps {
     storedCalculations: Array<{ materialLabel: string, height: number, sheetsCount: number }>;
     saveCalculation: (calculation: { materialLabel: string, height: number, sheetsCount: number }) => void;
     className?: string;
+    RenderSave: ({ }: SaveButtonProps) => React.ReactElement;
 }
 
-export const SaveCalculation: React.FC<SaveCalculationProps> = ({ material, height, sheetsCount, storedCalculations, saveCalculation, className }) => {
+export const SaveCalculation: React.FC<SaveCalculationProps> = ({ material, height, sheetsCount, storedCalculations, saveCalculation, className, RenderSave }) => {
     const isDuplicateCalculation = useDuplicateCalculation(material?.label || '', height, sheetsCount, storedCalculations);
 
     const handleSave = () => {
@@ -27,7 +35,7 @@ export const SaveCalculation: React.FC<SaveCalculationProps> = ({ material, heig
     };
 
     return (
-        <SaveButton onClick={handleSave} disabled={!height || isDuplicateCalculation} className={className} />
+        <RenderSave onClick={handleSave} disabled={!height || isDuplicateCalculation} className={className} />
     );
 };
 

@@ -1,4 +1,8 @@
 import {
+    DECREMENT_ONE,
+    DECREMENT_POINT_ONE,
+    HEIGHT_INCREMENT_ONE,
+    HEIGHT_INCREMENT_POINT_ONE,
     HeightControls,
     HeightRangeSlider,
     MAX_ITEMS_TO_SHOW,
@@ -15,6 +19,7 @@ import {
 
 import {
     CalculationList,
+    SaveButton,
     SaveCalculation,
     useSavedCalculations,
     useSheetsCount
@@ -23,6 +28,7 @@ import {
 import { getSheetLabel } from '@/fsd/shared/lib/utils/getSheetLabel';
 import { Logo } from '@/fsd/widgets/Logo';
 import styles from './SheetCalculator.module.scss';
+import Button from '@/fsd/shared/ui/Button';
 
 const SheetCalculator = () => {
     const { material, setMaterial } = useMaterial();
@@ -43,16 +49,24 @@ const SheetCalculator = () => {
                 <HeightRangeSlider onHeightChange={handleHeightChange} height={height} disabled={!material} />
 
                 <HeightControls
-                    decreaseHeight={decreaseHeight}
-                    increaseHeight={increaseHeight}
-                    canDecreaseByOne={canDecreaseByOne}
-                    canDecreaseByPointOne={canDecreaseByPointOne}
-                    material={material}
-                >
-                    <b className={styles.sheetsCountLabel}>
-                        {sheetsCount} <br /> {getSheetLabel(sheetsCount)}
-                    </b>
-                </HeightControls>
+                    leftColumn={
+                        <>
+                            <Button onClick={() => decreaseHeight(DECREMENT_ONE)} disabled={!material || !canDecreaseByOne}>- {DECREMENT_ONE} cm</Button>
+                            <Button onClick={() => decreaseHeight(DECREMENT_POINT_ONE)} disabled={!material || !canDecreaseByPointOne}>- {DECREMENT_POINT_ONE} cm</Button>
+                        </>
+                    }
+                    middleColumn={
+                        <b className={styles.sheetsCountLabel}>
+                            {sheetsCount} <br /> {getSheetLabel(sheetsCount)}
+                        </b>
+                    }
+                    rightColumn={
+                        <>
+                            <Button onClick={() => increaseHeight(HEIGHT_INCREMENT_ONE)} disabled={!material}>+ {HEIGHT_INCREMENT_ONE} cm</Button>
+                            <Button onClick={() => increaseHeight(HEIGHT_INCREMENT_POINT_ONE)} disabled={!material}>+ {HEIGHT_INCREMENT_POINT_ONE} cm</Button>
+                        </>
+                    }
+                />
 
                 <SaveCalculation
                     material={material}
@@ -61,10 +75,11 @@ const SheetCalculator = () => {
                     storedCalculations={storedCalculations}
                     saveCalculation={saveCalculation}
                     className={styles.saveButton}
+                    RenderSave={(props) => <SaveButton {...props} />}
                 />
 
                 <CalculationList savedCalculations={storedCalculations} maxItemsToShow={MAX_ITEMS_TO_SHOW} />
-            </section>
+            </section >
             <Logo className={styles.logo} />
         </>
     );
