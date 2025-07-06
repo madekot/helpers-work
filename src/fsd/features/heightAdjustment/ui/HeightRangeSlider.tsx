@@ -22,8 +22,10 @@ export const HeightRangeSlider: React.FC<Props> = ({
     return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
             <div style={{ flex: 1 }}>
-                <label htmlFor="height" style={{ marginRight: 5 }}>Высота стопы:</label>
-                <b style={{ fontSize: 22 }}>{height.toFixed(1)} {getCentimeterLabel(height)}</b>
+                <div style={{marginTop: 20}}>
+                    <label htmlFor="height" style={{ marginRight: 5}}>Высота стопы:</label>
+                    <b style={{ fontSize: 22 }}>{height.toFixed(1)} {getCentimeterLabel(height)}</b>
+                </div>
                 <div style={{ marginTop: 30, marginBottom: 40, padding: '0 10px' }}>
                     <Slider
                         value={height}

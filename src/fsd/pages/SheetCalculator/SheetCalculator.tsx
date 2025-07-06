@@ -46,7 +46,6 @@ const SheetCalculator = () => {
             <section className={styles.container}>
                 <h2 className={styles.title}>Калькулятор <br /> количества листов</h2>
                 <MaterialSelect onMaterialChange={setMaterial} selectedMaterial={material} />
-                <HeightRangeSlider onHeightChange={handleHeightChange} height={height} disabled={!material} />
 
                 <HeightControls
                     leftColumn={
@@ -67,6 +66,7 @@ const SheetCalculator = () => {
                         </>
                     }
                 />
+                <HeightRangeSlider onHeightChange={handleHeightChange} height={height} disabled={!material} />
 
                 <SaveCalculation
                     material={material}
